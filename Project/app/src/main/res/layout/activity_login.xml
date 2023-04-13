@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".LoginActivity">
+
+    <!--    CONTAINER    -->
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:background="@drawable/login_drawables"
+        android:orientation="vertical">
+
+        <!--    TITLE    -->
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+
+            android:text="@string/leaf_bank"
+            android:textSize="48sp"
+            android:textColor="#e3efc2"
+            android:textAlignment="center"
+
+            android:fontFamily="@font/tropical"
+        />
+
+        <!--    USERNAME_TEXT    -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="70dp"
+
+            android:text="@string/username"
+            android:textSize="12sp"
+            android:textColor="#e3efc2"
+            android:textAllCaps="true"
+
+            android:fontFamily="@font/josefinsanslight"
+        />
+
+        <!--    USERNAME_EDITBOX    -->
+        <EditText
+            android:id="@+id/usernameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="23dp"
+            android:paddingHorizontal="5dp"
+            android:background="@drawable/editbox"
+
+            android:textColor="#e3efc2"
+            android:textSize="11sp"
+        />
+
+        <!--    PASSWORD_TEXT    -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="30dp"
+
+            android:text="@string/password"
+            android:textSize="12sp"
+            android:textColor="#e3efc2"
+            android:textAllCaps="true"
+
+            android:fontFamily="@font/josefinsanslight"
+        />
+
+        <!--    PASSWORD_EDITBOX    -->
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="23dp"
+            android:paddingHorizontal="5dp"
+            android:background="@drawable/editbox"
+
+            android:textColor="#e3efc2"
+            android:textSize="11sp"
+        />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
