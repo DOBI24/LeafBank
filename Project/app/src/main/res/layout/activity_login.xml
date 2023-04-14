@@ -8,7 +8,7 @@
     tools:context=".LoginActivity">
 
     <!--    CONTAINER    -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="300dp"
         android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -16,80 +16,133 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
-        android:background="@drawable/login_drawables"
-        android:orientation="vertical">
+        android:background="@drawable/login_drawables">
 
-        <!--    TITLE    -->
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-
-            android:text="@string/leaf_bank"
-            android:textSize="48sp"
-            android:textColor="#e3efc2"
-            android:textAlignment="center"
-
+            android:layout_marginTop="25dp"
             android:fontFamily="@font/tropical"
-        />
+            android:text="@string/leaf_bank"
 
-        <!--    USERNAME_TEXT    -->
+            android:textAlignment="center"
+            android:textColor="#e3efc2"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
+            android:id="@+id/usernameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="70dp"
-
-            android:text="@string/username"
-            android:textSize="12sp"
-            android:textColor="#e3efc2"
-            android:textAllCaps="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="25dp"
 
             android:fontFamily="@font/josefinsanslight"
-        />
+            android:text="@string/username"
+            android:textAllCaps="true"
+            android:textColor="#e3efc2"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
-        <!--    USERNAME_EDITBOX    -->
         <EditText
             android:id="@+id/usernameEditText"
             android:layout_width="match_parent"
             android:layout_height="24dp"
-            android:layout_marginTop="10dp"
             android:layout_marginHorizontal="23dp"
-            android:paddingHorizontal="5dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/editbox"
-
+            android:inputType="textPersonName"
+            android:paddingHorizontal="5dp"
             android:textColor="#e3efc2"
-            android:textSize="11sp"
-        />
 
-        <!--    PASSWORD_TEXT    -->
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usernameTextView" />
+
         <TextView
+            android:id="@+id/passwordTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="30dp"
-
-            android:text="@string/password"
-            android:textSize="12sp"
-            android:textColor="#e3efc2"
-            android:textAllCaps="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
 
             android:fontFamily="@font/josefinsanslight"
-        />
+            android:text="@string/password"
+            android:textAllCaps="true"
+            android:textColor="#e3efc2"
 
-        <!--    PASSWORD_EDITBOX    -->
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usernameEditText" />
+
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="24dp"
-            android:layout_marginTop="10dp"
             android:layout_marginHorizontal="23dp"
-            android:paddingHorizontal="5dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/editbox"
+            android:inputType="textPassword"
+            android:paddingHorizontal="5dp"
 
             android:textColor="#e3efc2"
             android:textSize="11sp"
-        />
-    </LinearLayout>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
+
+        <TextView
+            android:id="@+id/registerTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/josefinsansregular"
+
+            android:text="@string/register"
+            android:textColor="#e3efc2"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/login_btn"
+
+            android:textSize="12sp"
+            android:textAllCaps="false"
+            android:text="@string/login"
+            android:fontFamily="@font/maitreeregular"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <!--    TITLE    -->
+
+        <!--    USERNAME_TEXT    -->
+
+        <!--    USERNAME_EDITBOX    -->
+
+        <!--    PASSWORD_TEXT    -->
+
+        <!--    PASSWORD_EDITBOX    -->
+
+        <!--    REGISTER_TEXT    -->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,4 +3,6 @@
     <string name="leaf_bank">Leaf Bank</string>
     <string name="username">Felhasználónév</string>
     <string name="password">Jelszó</string>
+    <string name="register">Regisztráció</string>
+    <string name="login">Bejelentkezés</string>
 </resources>
