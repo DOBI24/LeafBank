@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "18239445818",
+    "project_id": "leafbank-e952c",
+    "storage_bucket": "leafbank-e952c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18239445818:android:497380d9ec8ea802b24e03",
+        "android_client_info": {
+          "package_name": "com.leafbank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "18239445818-g7sn5g4oclbbe3v0fek1eebdh0i7ck0m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.leafbank",
+            "certificate_hash": "48f655869ab72f0a62890bf74ad6c073fdd9b607"
+          }
+        },
+        {
+          "client_id": "18239445818-lqkbp6idt818uf7dbipt8osusu5nqsvb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHgGWpFnkAD3BlbSFaff842YbMkCbfvL0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "18239445818-lqkbp6idt818uf7dbipt8osusu5nqsvb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

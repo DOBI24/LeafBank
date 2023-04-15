@@ -5,4 +5,7 @@
     <string name="password">Jelszó</string>
     <string name="register">Regisztráció</string>
     <string name="login">Bejelentkezés</string>
+    <string name="name">Név</string>
+    <string name="passwordRep">Jelszó 2x</string>
+    <string name="email">Email</string>
 </resources>

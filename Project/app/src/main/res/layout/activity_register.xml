@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <!--    CONTAINER    -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -66,7 +66,7 @@
             android:textColor="#e3efc2"
             android:autofillHints="username"
 
-            android:textSize="18sp"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/usernameTextView" />
@@ -104,10 +104,86 @@
             android:autofillHints="password"
 
             android:textColor="#e3efc2"
-            android:textSize="18sp"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
+
+        <!--    PASSWORD_2_TEXT    -->
+        <TextView
+            android:id="@+id/passwordRepTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+
+            android:fontFamily="@font/josefinsanslight"
+            android:text="@string/passwordRep"
+            android:textAllCaps="true"
+            android:textColor="#e3efc2"
+
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
+            android:labelFor="@id/passwordRepEditText"/>
+
+        <!--    PASSWORD_2_EDITBOX    -->
+        <EditText
+            android:id="@+id/passwordRepEditText"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="23dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/editbox"
+            android:inputType="textPassword"
+            android:paddingHorizontal="5dp"
+            android:autofillHints="password"
+
+            android:textColor="#e3efc2"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordRepTextView" />
+
+        <!--    NAME_TEXT    -->
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+
+            android:fontFamily="@font/josefinsanslight"
+            android:text="@string/email"
+            android:textAllCaps="true"
+            android:textColor="#e3efc2"
+
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordRepEditText"
+            android:labelFor="@id/emailEditText"/>
+
+        <!--    EMAIL_EDITBOX    -->
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="23dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/editbox"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="5dp"
+            android:autofillHints="emailAddress"
+
+            android:textColor="#e3efc2"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
         <!--    REGISTER_BUTTON    -->
         <Button
@@ -117,18 +193,17 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="25dp"
-            android:background="#00000000"
             android:fontFamily="@font/josefinsansregular"
+            android:background="#00000000"
 
-            android:onClick="registerClick"
-            android:text="Még nincs fiókod? Regisztrálj"
             android:textAlignment="textStart"
-            android:textColor="#e3efc2"
+            android:text="Van fiókod? Lépj be"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textColor="#e3efc2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
 
         <!--    LOGIN_BUTTON    -->
         <Button
@@ -138,14 +213,15 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/login_btn"
             android:fontFamily="@font/maitreeregular"
-            android:text="@string/login"
+            android:onClick="registerClick"
+            android:text="@string/register"
             android:textAllCaps="false"
 
-            android:onClick="loginClick"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/registerTextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
