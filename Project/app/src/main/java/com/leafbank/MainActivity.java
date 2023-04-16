@@ -14,23 +14,25 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseFirestore firestore;
+//    FirebaseFirestore firestore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
-        firestore = FirebaseFirestore.getInstance();
 
-        Map<String, Object> user = new HashMap<>();
-        user.put("firstname", "asd");
-        user.put("Name", "cica");
+//        firestore = FirebaseFirestore.getInstance();
+//
+//        Map<String, Object> user = new HashMap<>();
+//        user.put("firstname", "asd");
+//        user.put("Name", "cica");
+//
+//        firestore.collection("users").add(user)
+//                .addOnSuccessListener(documentReference -> Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show())
+//                .addOnFailureListener(e -> Toast.makeText(MainActivity.this, "Failure", Toast.LENGTH_SHORT).show());
 
-        firestore.collection("users").add(user)
-                .addOnSuccessListener(documentReference -> Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show())
-                .addOnFailureListener(e -> Toast.makeText(MainActivity.this, "Failure", Toast.LENGTH_SHORT).show());
-
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 }
