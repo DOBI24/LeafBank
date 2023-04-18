@@ -34,9 +34,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--    USERNAME_TEXT    -->
+        <!--    EMAIL_TEXT    -->
         <TextView
-            android:id="@+id/usernameTextView"
+            android:id="@+id/emailTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -44,32 +44,32 @@
             android:layout_marginEnd="25dp"
 
             android:fontFamily="@font/josefinsanslight"
-            android:text="@string/username"
+            android:text="@string/email"
             android:textAllCaps="true"
             android:textColor="#e3efc2"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-            android:labelFor="@id/usernameEditText"/>
+            android:labelFor="@id/emailEditText"/>
 
-        <!--    USERNAME_EDITBOX    -->
+        <!--    EMAIL_EDITBOX    -->
         <EditText
-            android:id="@+id/usernameEditText"
+            android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginHorizontal="23dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/editbox"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:paddingHorizontal="5dp"
             android:textColor="#e3efc2"
-            android:autofillHints="username"
+            android:autofillHints="emailAddress"
 
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/usernameTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
         <!--    PASSWORD_TEXT    -->
         <TextView
@@ -88,7 +88,7 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/usernameEditText"
+            app:layout_constraintTop_toBottomOf="@+id/emailEditText"
             android:labelFor="@id/passwordEditText"/>
 
         <!--    PASSWORD_EDITBOX    -->

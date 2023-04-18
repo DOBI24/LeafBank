@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 //                .addOnSuccessListener(documentReference -> Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show())
 //                .addOnFailureListener(e -> Toast.makeText(MainActivity.this, "Failure", Toast.LENGTH_SHORT).show());
 
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 }
