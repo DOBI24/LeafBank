@@ -18,121 +18,137 @@
 
         android:background="@drawable/login_drawables">
 
-        <!--    TITLE    -->
-        <TextView
-            android:id="@+id/titleTextView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:fontFamily="@font/tropical"
-            android:text="@string/leaf_bank"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/login_loginBtn">
+            <!--    TITLE    -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/tropical"
+                android:text="@string/leaf_bank"
 
-            android:textAlignment="center"
-            android:textColor="#e3efc2"
-            android:textSize="55sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:textAlignment="center"
+                android:textColor="#e3efc2"
+                android:textSize="55sp" />
 
-        <!--    EMAIL_TEXT    -->
-        <TextView
-            android:id="@+id/emailTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="25dp"
+            <!--    EMAIL_TEXT    -->
+            <TextView
+                android:id="@+id/login_emailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="25dp"
 
-            android:fontFamily="@font/josefinsanslight"
-            android:text="@string/email"
-            android:textAllCaps="true"
-            android:textColor="#e3efc2"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-            android:labelFor="@id/emailEditText"/>
+                android:fontFamily="@font/josefinsanslight"
+                android:text="@string/email"
+                android:textAllCaps="true"
+                android:textColor="#e3efc2"
+                android:textSize="20sp"
+                android:labelFor="@id/login_emailEditText"/>
 
-        <!--    EMAIL_EDITBOX    -->
-        <EditText
-            android:id="@+id/emailEditText"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginHorizontal="23dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/editbox"
-            android:inputType="textEmailAddress"
-            android:paddingHorizontal="5dp"
-            android:textColor="#e3efc2"
-            android:autofillHints="emailAddress"
+            <!--    EMAIL_EDITBOX    -->
+            <EditText
+                android:id="@+id/login_emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="23dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/editbox"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="5dp"
+                android:textColor="#e3efc2"
+                android:autofillHints="emailAddress"
 
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
+                android:textSize="18sp"
+                />
 
-        <!--    PASSWORD_TEXT    -->
-        <TextView
-            android:id="@+id/passwordTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="25dp"
+            <!--    ERMAILERROR_TEXT    -->
+            <TextView
+                android:id="@+id/login_emailErrorTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="25dp"
 
-            android:fontFamily="@font/josefinsanslight"
-            android:text="@string/password"
-            android:textAllCaps="true"
-            android:textColor="#e3efc2"
+                android:text=""
+                android:textColor="#dba695"
+                android:textSize="17sp"
+                />
 
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailEditText"
-            android:labelFor="@id/passwordEditText"/>
+            <!--    PASSWORD_TEXT    -->
+            <TextView
+                android:id="@+id/login_passwordTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="25dp"
 
-        <!--    PASSWORD_EDITBOX    -->
-        <EditText
-            android:id="@+id/passwordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginHorizontal="23dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/editbox"
-            android:inputType="textPassword"
-            android:paddingHorizontal="5dp"
-            android:autofillHints="password"
+                android:fontFamily="@font/josefinsanslight"
+                android:text="@string/password"
+                android:textAllCaps="true"
+                android:textColor="#e3efc2"
 
-            android:textColor="#e3efc2"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
+                android:textSize="20sp"
+                android:labelFor="@id/login_passwordEditText"/>
 
-        <!--    REGISTER_BUTTON    -->
-        <Button
-            android:id="@+id/registerTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="25dp"
-            android:background="#00000000"
-            android:fontFamily="@font/josefinsansregular"
+            <!--    PASSWORD_EDITBOX    -->
+            <EditText
+                android:id="@+id/login_passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="23dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/editbox"
+                android:inputType="textPassword"
+                android:paddingHorizontal="5dp"
+                android:autofillHints="password"
 
-            android:onClick="registerClick"
-            android:text="Még nincs fiókod? Regisztrálj"
-            android:textAlignment="textStart"
-            android:textColor="#e3efc2"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+                android:textColor="#e3efc2"
+                android:textSize="18sp" />
+
+            <!--    PASSWORD_ERROR_TEXT    -->
+            <TextView
+                android:id="@+id/login_passwordErrorTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="25dp"
+
+                android:text=""
+                android:textColor="#dba695"
+                android:textSize="17sp"
+                />
+
+            <!--    REGISTER_BUTTON    -->
+            <Button
+                android:id="@+id/login_registerBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="30dp"
+                android:background="#00000000"
+                android:fontFamily="@font/josefinsansregular"
+
+                android:onClick="registerClick"
+                android:text="Még nincs fiókod? Regisztrálj"
+                android:textAlignment="textStart"
+                android:textColor="#e3efc2"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <!--    LOGIN_BUTTON    -->
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/loginBtn"
+            android:id="@+id/login_loginBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -145,7 +161,6 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/registerTextView" />
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
