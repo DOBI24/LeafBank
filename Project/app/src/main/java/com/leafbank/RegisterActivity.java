@@ -10,16 +10,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.w3c.dom.Text;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -33,6 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
     TextView passwordRepErrorText;
 
     private FirebaseAuth firebase;
+    private FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
         passwordRepErrorText = findViewById(R.id.register_passwordRepErrorTextView);
 
         firebase = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
     }
 
     public void registerClick(View view) {
@@ -70,7 +79,13 @@ public class RegisterActivity extends AppCompatActivity {
 
         firebase.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()){
-                startHome();
+                FirebaseUser user = task.getResult().getUser();
+                Map<String, String> userDatas = new HashMap<>();
+                userDatas.put("EMAIL", email);
+                userDatas.put("USERNAME", username);
+                firestore.collection("Users").document(user.getUid()).set(userDatas)
+                        .addOnSuccessListener(unused -> startHome())
+                        .addOnFailureListener(e -> Toast.makeText(this, "Network ERROR", Toast.LENGTH_SHORT).show());
                 return;
             }
 
