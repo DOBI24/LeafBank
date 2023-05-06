@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_b"
-    tools:context=".home.HomeActivity">
+    tools:context=".bankaccount.BankaccountActivity">
 
     <LinearLayout
         android:id="@+id/titlelayout"
@@ -33,86 +33,70 @@
             app:srcCompat="@drawable/hr" />
 
     </LinearLayout>
-    <TableLayout
-        android:id="@+id/hometablelayout"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bankaccount_pageselector"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        app:layout_constraintTop_toBottomOf="@id/titlelayout"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bankaccount_tobankbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:onClick="tobankbtn_click"
+            android:background="@color/transparent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bankaccount_tocardbtn"
+
+            android:text="Számláid\n•"
+            android:elegantTextHeight="true"
+            android:textAllCaps="false"
+            android:textColor="@color/white1"
+            android:textSize="20sp"
+            android:fontFamily="@font/josefinsansbold"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bankaccount_tocardbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:onClick="tocardbtn_click"
+            android:background="@color/transparent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bankaccount_tobankbtn"
+
+            android:text="Kátyáid"
+            android:elegantTextHeight="true"
+            android:textAllCaps="false"
+            android:textColor="@color/white1"
+            android:textSize="20sp"
+            android:fontFamily="@font/josefinsansbold"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bankaccount_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/titlelayout"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bankaccount_pageselector">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bankaccount_newbtn"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bankaccount_newbtn"
+        android:onClick="createNewInvocie_Click"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp">
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-            <!--      SENDMONEY_BUTTON      -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/sendmoney"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@drawable/sendmoney"
-                android:layout_margin="10dp"
 
-                android:text="Pénz küldése"
-                android:fontFamily="@font/didactregular"
-                android:textColor="@color/white1"
-                android:paddingBottom="80dp"
-                android:textSize="23sp"
-                android:textAllCaps="false"
-                />
-            <!--      ATM_BUTTON      -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/atm"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@drawable/atm"
-                android:layout_margin="10dp"
-
-                android:text="ATM kereső"
-                android:fontFamily="@font/didactregular"
-                android:textColor="@color/white1"
-                android:paddingBottom="80dp"
-                android:textSize="23sp"
-                android:textAllCaps="false"
-                />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-            <!--      HISTORY_BUTTON      -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/history"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@drawable/history"
-                android:layout_margin="10dp"
-
-                android:text="Előzmények"
-                android:fontFamily="@font/didactregular"
-                android:textColor="@color/white1"
-                android:paddingBottom="80dp"
-                android:textSize="23sp"
-                android:textAllCaps="false"
-                />
-            <!--      ERECEIPT_BUTTON      -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/ereceipt"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@drawable/ereceipt"
-                android:layout_margin="10dp"
-
-                android:text="E-Számla"
-                android:fontFamily="@font/didactregular"
-                android:textColor="@color/white1"
-                android:paddingBottom="80dp"
-                android:textSize="23sp"
-                android:textAllCaps="false"
-                />
-        </TableRow>
-    </TableLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bankaccount_recyclerview" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/home_nawbar"
@@ -160,5 +144,4 @@
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

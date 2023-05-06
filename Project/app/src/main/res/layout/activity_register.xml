@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
 
                 android:fontFamily="@font/josefinsanslight"
@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginHorizontal="23dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="6dp"
                 android:background="@drawable/editbox"
                 android:inputType="textEmailAddress"
                 android:paddingHorizontal="5dp"
@@ -88,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
 
                 android:fontFamily="@font/josefinsanslight"
@@ -104,7 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginHorizontal="23dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="6dp"
                 android:background="@drawable/editbox"
                 android:inputType="textPersonName"
                 android:paddingHorizontal="5dp"
@@ -127,13 +127,58 @@
                 android:textSize="17sp"
                 />
 
+            <!--    FULLNAME_TEXT    -->
+            <TextView
+                android:id="@+id/register_fullnameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+
+                android:fontFamily="@font/josefinsanslight"
+                android:text="@string/name"
+                android:textAllCaps="true"
+                android:textColor="#e3efc2"
+                android:textSize="20sp"
+                android:labelFor="@id/register_fullnameEditText"/>
+
+            <!--    FULLNAME_EDITBOX    -->
+            <EditText
+                android:id="@+id/register_fullnameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="23dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/editbox"
+                android:inputType="textPersonName"
+                android:paddingHorizontal="5dp"
+                android:textColor="#e3efc2"
+                android:autofillHints="name"
+
+                android:textSize="18sp"
+                />
+
+            <!--    FULLNAMEERROR_TEXT    -->
+            <TextView
+                android:id="@+id/register_fullnameErrorTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="25dp"
+
+                android:text=""
+                android:textColor="#dba695"
+                android:textSize="17sp"
+                />
+
             <!--    PASSWORD_TEXT    -->
             <TextView
                 android:id="@+id/register_passwordTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
 
                 android:fontFamily="@font/josefinsanslight"
@@ -150,7 +195,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginHorizontal="23dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="6dp"
                 android:background="@drawable/editbox"
                 android:inputType="textPassword"
                 android:paddingHorizontal="5dp"
@@ -178,7 +223,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
 
                 android:fontFamily="@font/josefinsanslight"
@@ -195,7 +240,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginHorizontal="23dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="6dp"
                 android:background="@drawable/editbox"
                 android:inputType="textPassword"
                 android:paddingHorizontal="5dp"
@@ -223,14 +268,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="20dp"
                 android:background="#00000000"
                 android:fontFamily="@font/josefinsansregular"
 
                 android:onClick="loginClick"
-                android:text="Még nincs fiókod? Regisztrálj"
+                android:text="Már van fiókod? Lépj be"
                 android:textAlignment="textStart"
                 android:textColor="#e3efc2"
                 android:textSize="12sp"

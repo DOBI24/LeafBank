@@ -3,7 +3,6 @@ package com.leafbank;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,17 +12,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import org.w3c.dom.Text;
+import com.leafbank.home.HomeActivity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,10 +29,12 @@ public class RegisterActivity extends AppCompatActivity {
     EditText usernameEditText;
     EditText passwordEditText;
     EditText passwordRepEditText;
+    EditText fullnameEditText;
     TextView emailErrorText;
     TextView usernameErrorText;
     TextView passwordErrorText;
     TextView passwordRepErrorText;
+    TextView fullnameErrorText;
 
     private FirebaseAuth firebase;
     private FirebaseFirestore firestore;
@@ -52,11 +49,13 @@ public class RegisterActivity extends AppCompatActivity {
         usernameEditText = findViewById(R.id.register_usernameEditText);
         passwordEditText = findViewById(R.id.register_passwordEditText);
         passwordRepEditText = findViewById(R.id.register_passwordRepEditText);
+        fullnameEditText = findViewById(R.id.register_fullnameEditText);
 
         emailErrorText = findViewById(R.id.register_emailErrorTextView);
         usernameErrorText = findViewById(R.id.register_usernameErrorTextView);
         passwordErrorText = findViewById(R.id.register_passwordErrorTextView);
         passwordRepErrorText = findViewById(R.id.register_passwordRepErrorTextView);
+        fullnameErrorText = findViewById(R.id.register_fullnameErrorTextView);
 
         firebase = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
@@ -67,9 +66,10 @@ public class RegisterActivity extends AppCompatActivity {
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         String passwordRep = passwordRepEditText.getText().toString();
+        String fullname = fullnameEditText.getText().toString();
 
         // isEmpty CHECK
-        if(!LoginActivity.authDatas(new String[]{email, username, password, passwordRep}, new TextView[]{emailErrorText, usernameErrorText, passwordErrorText, passwordRepErrorText})) return;
+        if(!LoginActivity.authDatas(new String[]{email, username, password, passwordRep, fullname}, new TextView[]{emailErrorText, usernameErrorText, passwordErrorText, passwordRepErrorText, fullnameErrorText})) return;
 
         // PASSWORD EQUAl CHECK
         if (!password.equals(passwordRep)){
@@ -83,6 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Map<String, String> userDatas = new HashMap<>();
                 userDatas.put("EMAIL", email);
                 userDatas.put("USERNAME", username);
+                userDatas.put("NAME", fullname);
                 firestore.collection("Users").document(user.getUid()).set(userDatas)
                         .addOnSuccessListener(unused -> startHome())
                         .addOnFailureListener(e -> Toast.makeText(this, "Network ERROR", Toast.LENGTH_SHORT).show());
