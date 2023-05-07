@@ -68,7 +68,7 @@ public class HistoryItemAdapter extends RecyclerView.Adapter<HistoryItemAdapter.
             else history_arrow.setImageResource(R.drawable.inmoney);
             fromaccountTextView.setText(BankaccountItem.numberFormat(currentItem.getFromNumber()));
 
-            //TODO: Az idő direkt helyi időzóna
+            //Az idő direkt helyi időzóna
             detailsTextView.setText(
                     new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault()).format(currentItem.getDate().toDate()) + "\n"
                             + "$" + currentItem.getAmount()

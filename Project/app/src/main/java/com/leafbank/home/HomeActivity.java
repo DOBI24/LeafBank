@@ -35,8 +35,6 @@ public class HomeActivity extends AppCompatActivity implements HomeButtons {
     public static FirebaseUser user;
     public static CollectionReference usersRef;
     public static CollectionReference bankaccountsRef;
-    private TextView titleTextView;
-    private LinearLayout titlelayout;
 
     public static void pageController(Context context, Class<?> dest) {
         if (context.getClass() == dest) return;
