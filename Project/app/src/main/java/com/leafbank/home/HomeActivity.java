@@ -106,30 +106,14 @@ public class HomeActivity extends AppCompatActivity implements HomeButtons {
         }
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        LocationListener locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
-                double latitude = location.getLatitude();
-                double longitude = location.getLongitude();
-                String uri = "geo:" + latitude + "," + longitude + "?q=atm";
-                Uri geoUri = Uri.parse(uri);
-                Intent intent = new Intent(Intent.ACTION_VIEW, geoUri);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-            }
-        };
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        if (location != null) {
+            double latitude = location.getLatitude();
+            double longitude = location.getLongitude();
+            String uri = "geo:" + latitude + "," + longitude + "?q=atm";
+            Uri geoUri = Uri.parse(uri);
+            Intent intent = new Intent(Intent.ACTION_VIEW, geoUri);
+            startActivity(intent);
+        }
     }
 }
