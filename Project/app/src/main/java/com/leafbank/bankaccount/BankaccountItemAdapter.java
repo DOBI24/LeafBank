@@ -1,5 +1,6 @@
 package com.leafbank.bankaccount;
 
+import static com.leafbank.home.HomeActivity.user;
 import static com.leafbank.home.HomeActivity.usersRef;
 
 import android.content.Context;
@@ -32,16 +33,16 @@ public class BankaccountItemAdapter extends RecyclerView.Adapter<BankaccountItem
     }
 
     @Override
-    public int getItemCount() {
-        return items.size();
-    }
-
-    @Override
     public void onBindViewHolder(BankaccountItemAdapter.ViewHolder holder, int position) {
         BankaccountItem currentItem = items.get(position);
 
         holder.bindTo(currentItem);
     }
+    @Override
+    public int getItemCount() {
+        return items.size();
+    }
+
 
     class ViewHolder extends RecyclerView.ViewHolder{
         private TextView name;
@@ -57,7 +58,7 @@ public class BankaccountItemAdapter extends RecyclerView.Adapter<BankaccountItem
         }
 
         public void bindTo(BankaccountItem currentItem) {
-            usersRef.get()
+            usersRef.document(user.getUid()).get()
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()){
                             String fullname = documentSnapshot.getString("NAME");

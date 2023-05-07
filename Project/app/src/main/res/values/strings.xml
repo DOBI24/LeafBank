@@ -8,4 +8,8 @@
     <string name="name">Név</string>
     <string name="passwordRep">Jelszó 2x</string>
     <string name="email">Email</string>
+    <string name="szamla">Számla</string>
+    <string name="toaccountnumber">Címzett számlaszáma</string>
+    <string name="amount">Összeg</string>
+    <string name="send">Küldés</string>
 </resources>

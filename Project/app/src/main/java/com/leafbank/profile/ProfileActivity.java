@@ -4,7 +4,6 @@ import static com.leafbank.home.HomeActivity.pageController;
 import static com.leafbank.home.HomeActivity.user;
 import static com.leafbank.home.HomeActivity.usersRef;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,12 +12,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.leafbank.LoginActivity;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.leafbank.login.LoginActivity;
 import com.leafbank.R;
 import com.leafbank.bankaccount.BankaccountActivity;
 import com.leafbank.home.HomeActivity;
@@ -29,6 +26,7 @@ public class ProfileActivity extends AppCompatActivity implements HomeButtons {
     private EditText usernameEditText;
     private EditText fullnameEditText;
     private FirebaseAuth firebase;
+    private FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +35,14 @@ public class ProfileActivity extends AppCompatActivity implements HomeButtons {
         getSupportActionBar().hide();
 
         firebase = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
 
         emailEditText = findViewById(R.id.profile_emailEditText);
         usernameEditText = findViewById(R.id.profile_usernameEditText);
         fullnameEditText = findViewById(R.id.profile_fullnameEditText);
 
         emailEditText.setText(user.getEmail());
-        usersRef.get().addOnSuccessListener(documentSnapshot -> {
+        usersRef.document(user.getUid()).get().addOnSuccessListener(documentSnapshot -> {
             if (documentSnapshot.exists()){
                 usernameEditText.setText(documentSnapshot.getString("USERNAME"));
                 fullnameEditText.setText(documentSnapshot.getString("NAME"));
@@ -87,7 +86,15 @@ public class ProfileActivity extends AppCompatActivity implements HomeButtons {
     }
 
     public void deleteuserbtn_click(View view) {
+        firebase.signOut();
+        firestore.collection("Bankaccounts").whereEqualTo("ownerID", user.getUid()).get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                   for (DocumentSnapshot x : queryDocumentSnapshots){
+                       x.getReference().delete();
+                   }
+                });
         user.delete();
+        usersRef.document(user.getUid()).delete();
         Intent intent = new Intent(this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

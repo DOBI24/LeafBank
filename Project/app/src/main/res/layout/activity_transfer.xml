@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_b"
+    tools:context=".transfer.TransferActivity">
+    <LinearLayout
+        android:id="@+id/titlelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:id="@+id/home_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Szia"
+            android:textColor="@color/white1"
+            android:textSize="35sp"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/hr" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:background="@drawable/login_drawables"
+        android:backgroundTint="@color/white1_10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/transfer_sendBtn">
+
+            <TextView
+                android:id="@+id/transfer_fromaccountTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="12dp"
+
+                android:fontFamily="@font/josefinsanslight"
+                android:text="@string/szamla"
+                android:textAllCaps="true"
+                android:textColor="#e3efc2"
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:labelFor="@id/transfer_toaccountnumberEditText"/>
+
+            <RadioGroup
+                android:id="@+id/transfer_radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/editbox"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="23dp">
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/transfer_toaccountnumberTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="50dp"
+
+                android:fontFamily="@font/josefinsanslight"
+                android:text="@string/toaccountnumber"
+                android:textAllCaps="true"
+                android:textColor="@color/white1"
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:labelFor="@id/transfer_toaccountnumberEditText"/>
+
+            <EditText
+                android:id="@+id/transfer_toaccountnumberEditText"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="23dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/editbox"
+                android:inputType="number"
+                android:paddingHorizontal="5dp"
+                android:textColor="#e3efc2"
+                android:autofillHints="creditCardNumber"
+                android:textAlignment="center"
+
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/transfer_toaccountnumberErrorTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="25dp"
+
+                android:text=""
+                android:textColor="#dba695"
+                android:textSize="17sp"
+                />
+
+            <TextView
+                android:id="@+id/transfer_amountTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="25dp"
+
+                android:fontFamily="@font/josefinsanslight"
+                android:text="@string/amount"
+                android:textAllCaps="true"
+                android:textColor="#e3efc2"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:labelFor="@id/transfer_amountEditText"/>
+
+            <EditText
+                android:id="@+id/transfer_amountEditText"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="23dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/editbox"
+                android:inputType="numberDecimal"
+                android:paddingHorizontal="5dp"
+
+                android:textAlignment="center"
+                android:textColor="#e3efc2"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/transfer_amountErrorTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="20dp"
+
+                android:text=""
+                android:textColor="#dba695"
+                android:textSize="17sp"
+                />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/transfer_sendBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/login_btn"
+            android:fontFamily="@font/maitreeregular"
+            android:text="@string/send"
+            android:textAllCaps="false"
+
+            android:onClick="sendTransferClick"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/home_bar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/home_homebtn"
+            android:layout_width="46dp"
+            android:layout_height="50dp"
+            android:onClick="hombebtn_click"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="30dp"
+
+            android:background="@drawable/home_home"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/home_bankaccountbtn"
+            android:layout_width="68dp"
+            android:layout_height="70dp"
+            android:background="@drawable/bankaccount_button"
+            android:onClick="bankaccountbtn_click"
+            app:layout_constraintEnd_toStartOf="@+id/home_profilebtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintStart_toEndOf="@+id/home_homebtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/home_profilebtn"
+            android:layout_width="46dp"
+            android:layout_height="50dp"
+            android:onClick="profilebtn_click"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="30dp"
+
+            android:background="@drawable/home_profile"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

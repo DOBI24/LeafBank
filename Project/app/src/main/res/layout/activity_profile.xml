@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/titlelayout"
-        app:layout_constraintBottom_toTopOf="@+id/home_nawbar">
+        app:layout_constraintBottom_toTopOf="@+id/home_navbar">
 
         <!--    EMAIL_TEXT    -->
         <TextView
@@ -185,15 +185,15 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/home_nawbar"
+        android:id="@+id/home_navbar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:background="@drawable/home_bar"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/home_homebtn"
-            android:layout_width="48dp"
+            android:layout_width="46dp"
             android:layout_height="50dp"
             android:onClick="hombebtn_click"
             app:layout_constraintStart_toStartOf="parent"
@@ -210,15 +210,15 @@
             android:layout_height="70dp"
             android:background="@drawable/bankaccount_button"
             android:onClick="bankaccountbtn_click"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/home_profilebtn"
+            app:layout_constraintBottom_toBottomOf="parent"
 
             app:layout_constraintStart_toEndOf="@+id/home_homebtn"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/home_profilebtn"
-            android:layout_width="48dp"
+            android:layout_width="46dp"
             android:layout_height="50dp"
             android:onClick="profilebtn_click"
             app:layout_constraintEnd_toEndOf="parent"

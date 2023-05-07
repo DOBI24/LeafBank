@@ -38,7 +38,6 @@ public class BankaccountActivity extends AppCompatActivity implements HomeButton
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bankaccount);
         getSupportActionBar().hide();
-
         HomeActivity.setUserNameTextView(this);
 
         firestore = FirebaseFirestore.getInstance();
@@ -53,7 +52,9 @@ public class BankaccountActivity extends AppCompatActivity implements HomeButton
         recyclerView.setAdapter(adapter);
 
 
-        firestore.collection("Bankaccounts").whereEqualTo("ownerID", user.getUid()).get()
+        firestore.collection("Bankaccounts")
+                .whereEqualTo("ownerID", user.getUid())
+                .orderBy("balance").get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     if (queryDocumentSnapshots != null){
                         for (QueryDocumentSnapshot document : queryDocumentSnapshots){

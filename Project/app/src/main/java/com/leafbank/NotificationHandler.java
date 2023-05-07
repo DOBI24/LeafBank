@@ -5,17 +5,21 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
+import com.leafbank.home.HomeActivity;
 
 import java.util.concurrent.ConcurrentHashMap;
 
 public class NotificationHandler {
     private static final String CHANNEL_ID = "leafbank_notification_channel";
     private final int NOTIFICATION_ID = 0;
-
     private NotificationManager manager;
     private Context context;
 
@@ -42,21 +46,19 @@ public class NotificationHandler {
         this.manager.createNotificationChannel(channel);
     }
 
-    public void Send(String message){
+    public void SendTransferNotification(String message) {
         //TODO: History activity csere
-        Intent intent = new Intent(context, LoginActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent intent = new Intent(context, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setContentTitle("LeafBank")
                 .setContentText(message)
-                .setSmallIcon(R.drawable.history)
-                .setContentIntent(pendingIntent);
+                .setSmallIcon(R.drawable.outmoney)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
 
         this.manager.notify(NOTIFICATION_ID, builder.build());
-    }
-
-    public void cancel(){
-        this.manager.cancel(NOTIFICATION_ID);
     }
 }

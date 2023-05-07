@@ -1,4 +1,4 @@
-package com.leafbank;
+package com.leafbank.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.leafbank.R;
 import com.leafbank.home.HomeActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -33,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
         emailErrorText = findViewById(R.id.login_emailErrorTextView);
         passwordErrorText = findViewById(R.id.login_passwordErrorTextView);
         firebase = FirebaseAuth.getInstance();
-
     }
 
     public void registerClick(View view) {

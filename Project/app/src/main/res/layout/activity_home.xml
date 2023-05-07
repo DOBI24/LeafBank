@@ -47,11 +47,12 @@
             android:gravity="center">
             <!--      SENDMONEY_BUTTON      -->
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/sendmoney"
+                android:id="@+id/home_sendmoneybtn"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@drawable/sendmoney"
                 android:layout_margin="10dp"
+                android:onClick="sendmoneybtn_click"
 
                 android:text="Pénz küldése"
                 android:fontFamily="@font/didactregular"
@@ -62,11 +63,12 @@
                 />
             <!--      ATM_BUTTON      -->
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/atm"
+                android:id="@+id/home_atmbtn"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@drawable/atm"
                 android:layout_margin="10dp"
+                android:onClick="atmbtn_click"
 
                 android:text="ATM kereső"
                 android:fontFamily="@font/didactregular"
@@ -83,11 +85,12 @@
             android:gravity="center">
             <!--      HISTORY_BUTTON      -->
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/history"
+                android:id="@+id/home_historybtn"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@drawable/history"
                 android:layout_margin="10dp"
+                android:onClick="historybtn_click"
 
                 android:text="Előzmények"
                 android:fontFamily="@font/didactregular"
@@ -98,7 +101,7 @@
                 />
             <!--      ERECEIPT_BUTTON      -->
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/ereceipt"
+                android:id="@+id/home_ereceiptbtn"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@drawable/ereceipt"
@@ -115,15 +118,15 @@
     </TableLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/home_nawbar"
+        android:id="@+id/home_navbar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:background="@drawable/home_bar"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/home_homebtn"
-            android:layout_width="48dp"
+            android:layout_width="46dp"
             android:layout_height="50dp"
             android:onClick="hombebtn_click"
             app:layout_constraintStart_toStartOf="parent"
@@ -140,15 +143,15 @@
             android:layout_height="70dp"
             android:background="@drawable/bankaccount_button"
             android:onClick="bankaccountbtn_click"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/home_profilebtn"
+            app:layout_constraintBottom_toBottomOf="parent"
 
             app:layout_constraintStart_toEndOf="@+id/home_homebtn"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/home_profilebtn"
-            android:layout_width="48dp"
+            android:layout_width="46dp"
             android:layout_height="50dp"
             android:onClick="profilebtn_click"
             app:layout_constraintEnd_toEndOf="parent"

@@ -2,7 +2,7 @@ package com.leafbank.bankaccount;
 
 public class BankaccountItem {
     private String number;
-    private float balance;
+    private double balance;
 
     private String ownerID;
 
@@ -19,7 +19,7 @@ public class BankaccountItem {
         return number;
     }
 
-    public float getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -27,9 +27,15 @@ public class BankaccountItem {
         return ownerID;
     }
 
-    static String numberFormat(String number){
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public static String numberFormat(String number){
         StringBuilder ret = new StringBuilder(number);
         ret.insert(8, "-");
         return String.valueOf(ret);
     }
+
+
 }

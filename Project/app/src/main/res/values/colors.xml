@@ -10,6 +10,7 @@
     <color name="transparent">#00000000</color>
 
     <color name="white1">#FFe3efc2</color>
+    <color name="white1_10">#19e3efc2</color>
     <color name="white2">#FFd8e9a8</color>
     <color name="green1">#FF4e9f3d</color>
     <color name="green2">#FF1e5128</color>
