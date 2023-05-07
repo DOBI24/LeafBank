@@ -1,4 +1,4 @@
-package com.leafbank;
+package com.leafbank.history;
 
 import com.google.firebase.Timestamp;
 
@@ -9,12 +9,12 @@ public class HistoryItem {
     private String toUser;
     private Timestamp date;
     private double amount;
-    private String  direction;
+    private String direction;
 
     public HistoryItem() {
     }
 
-    public HistoryItem(String fromUser, String fromNumber,  String toUser, String toNumber, Timestamp date, double amount) {
+    public HistoryItem(String fromUser, String fromNumber, String toUser, String toNumber, Timestamp date, double amount) {
         this.fromNumber = fromNumber;
         this.fromUser = fromUser;
         this.toNumber = toNumber;
@@ -47,7 +47,7 @@ public class HistoryItem {
         return toUser;
     }
 
-    String  getDirection() {
+    String getDirection() {
         return direction;
     }
 

@@ -11,78 +11,35 @@
         android:id="@+id/titlelayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:paddingHorizontal="20dp"
-        android:layout_marginTop="20dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/home_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Szia"
+            android:text="@string/hi"
             android:textColor="@color/white1"
-            android:textSize="35sp"/>
+            android:textSize="35sp" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="0dp"
             android:layout_weight="1"
+            android:contentDescription="@string/hr"
             app:srcCompat="@drawable/hr" />
-
     </LinearLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bankaccount_pageselector"
-        android:layout_width="match_parent"
-        android:layout_height="50sp"
-        app:layout_constraintTop_toBottomOf="@id/titlelayout"
-        android:orientation="horizontal">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bankaccount_tobankbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:onClick="tobankbtn_click"
-            android:background="@color/transparent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bankaccount_tocardbtn"
-
-            android:text="Számláid\n•"
-            android:elegantTextHeight="true"
-            android:textAllCaps="false"
-            android:textColor="@color/white1"
-            android:textSize="20sp"
-            android:fontFamily="@font/josefinsansbold"
-            />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bankaccount_tocardbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:onClick="tocardbtn_click"
-            android:background="@color/transparent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/bankaccount_tobankbtn"
-
-            android:text="Kátyáid"
-            android:elegantTextHeight="true"
-            android:textAllCaps="false"
-            android:textColor="@color/white1"
-            android:textSize="20sp"
-            android:fontFamily="@font/josefinsansbold"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bankaccount_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/bankaccount_pageselector">
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@+id/titlelayout" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bankaccount_newbtn"
@@ -91,7 +48,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/bankaccount_newbtn"
-        android:onClick="createNewInvocie_Click"
+        android:onClick="createNewBankAccount_click"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
 
@@ -109,14 +66,13 @@
             android:id="@+id/home_homebtn"
             android:layout_width="46dp"
             android:layout_height="50dp"
-            android:onClick="hombebtn_click"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="30dp"
-
             android:background="@drawable/home_home"
-            />
+            android:onClick="hombebtn_click"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/home_bankaccountbtn"
@@ -124,8 +80,8 @@
             android:layout_height="70dp"
             android:background="@drawable/bankaccount_button"
             android:onClick="bankaccountbtn_click"
-            app:layout_constraintEnd_toStartOf="@+id/home_profilebtn"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/home_profilebtn"
 
             app:layout_constraintStart_toEndOf="@+id/home_homebtn"
             app:layout_constraintTop_toTopOf="parent" />
@@ -134,14 +90,13 @@
             android:id="@+id/home_profilebtn"
             android:layout_width="46dp"
             android:layout_height="50dp"
-            android:onClick="profilebtn_click"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginEnd="30dp"
-
             android:background="@drawable/home_profile"
-            />
+            android:onClick="profilebtn_click"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

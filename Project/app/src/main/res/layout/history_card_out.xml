@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="@color/transparent"
     app:cardElevation="0dp">
 
@@ -10,76 +11,80 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:orientation="horizontal"
+        android:background="@drawable/history_bg"
 
-        android:background="@drawable/history_bg">
+        android:orientation="horizontal">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="300dp"
             android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/history_fromaccountTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/historytextview"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/history_detailsTextView"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="10dp"
-
-                android:text="12345678-12345678"
-                android:textColor="@color/white1"
-                android:textAlignment="center"
+                android:background="@drawable/historytextview"
                 android:fontFamily="@font/impact"
                 android:letterSpacing="0.1"
-                />
+                android:text="12345678-12345678"
+                android:textAlignment="center"
+
+                android:textColor="@color/white1"
+                app:layout_constraintBottom_toTopOf="@id/history_detailsTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
+
             <TextView
                 android:id="@+id/history_detailsTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/historytextview"
-                app:layout_constraintTop_toBottomOf="@id/history_fromaccountTextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/history_toaccountTextView"
                 android:layout_margin="10dp"
-                android:padding="10dp"
-
-                android:text="2022.05.07 14:05:55\n$6000.0"
-                android:textColor="@color/white1"
-                android:textAlignment="center"
-                android:lineSpacingExtra="10dp"
+                android:background="@drawable/historytextview"
                 android:fontFamily="@font/josefinsansregular"
+                android:lineSpacingExtra="10dp"
+                android:padding="10dp"
+                android:text="2022.05.07 14:05:55\n$6000.0"
+                android:textAlignment="center"
+
+                android:textColor="@color/white1"
                 android:textStyle="bold"
-                />
+                app:layout_constraintBottom_toTopOf="@id/history_toaccountTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/history_fromaccountTextView"
+                tools:ignore="HardcodedText" />
+
             <TextView
                 android:id="@+id/history_toaccountTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/historytextview"
-                app:layout_constraintTop_toBottomOf="@id/history_detailsTextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="10dp"
-
-                android:text="12345678-12345678"
-                android:textColor="@color/white1"
-                android:textAlignment="center"
+                android:background="@drawable/historytextview"
                 android:fontFamily="@font/impact"
                 android:letterSpacing="0.1"
-                />
+                android:text="12345678-12345678"
+                android:textAlignment="center"
+
+                android:textColor="@color/white1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/history_detailsTextView"
+                tools:ignore="HardcodedText" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/outmoney2"
             android:layout_gravity="center"
-            android:layout_marginEnd="10dp"/>
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/arrow"
+            app:srcCompat="@drawable/outmoney2" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

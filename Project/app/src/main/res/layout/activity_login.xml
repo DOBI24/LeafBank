@@ -9,21 +9,22 @@
 
     <!--    CONTAINER    -->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_container"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/login_drawables"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
 
-        android:background="@drawable/login_drawables">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/login_loginBtn">
+            app:layout_constraintBottom_toTopOf="@id/login_loginBtn"
+            app:layout_constraintTop_toTopOf="parent">
             <!--    TITLE    -->
             <TextView
                 android:layout_width="match_parent"
@@ -46,11 +47,11 @@
                 android:layout_marginEnd="25dp"
 
                 android:fontFamily="@font/josefinsanslight"
+                android:labelFor="@id/login_emailEditText"
                 android:text="@string/email"
                 android:textAllCaps="true"
                 android:textColor="#e3efc2"
-                android:textSize="20sp"
-                android:labelFor="@id/login_emailEditText"/>
+                android:textSize="20sp" />
 
             <!--    EMAIL_EDITBOX    -->
             <EditText
@@ -59,14 +60,13 @@
                 android:layout_height="30dp"
                 android:layout_marginHorizontal="23dp"
                 android:layout_marginTop="12dp"
+                android:autofillHints="emailAddress"
                 android:background="@drawable/editbox"
                 android:inputType="textEmailAddress"
                 android:paddingHorizontal="5dp"
                 android:textColor="#e3efc2"
-                android:autofillHints="emailAddress"
 
-                android:textSize="18sp"
-                />
+                android:textSize="18sp" />
 
             <!--    ERMAILERROR_TEXT    -->
             <TextView
@@ -78,8 +78,7 @@
 
                 android:text=""
                 android:textColor="#dba695"
-                android:textSize="17sp"
-                />
+                android:textSize="17sp" />
 
             <!--    PASSWORD_TEXT    -->
             <TextView
@@ -91,12 +90,12 @@
                 android:layout_marginEnd="25dp"
 
                 android:fontFamily="@font/josefinsanslight"
+                android:labelFor="@id/login_passwordEditText"
                 android:text="@string/password"
                 android:textAllCaps="true"
-                android:textColor="#e3efc2"
 
-                android:textSize="20sp"
-                android:labelFor="@id/login_passwordEditText"/>
+                android:textColor="#e3efc2"
+                android:textSize="20sp" />
 
             <!--    PASSWORD_EDITBOX    -->
             <EditText
@@ -105,10 +104,10 @@
                 android:layout_height="30dp"
                 android:layout_marginHorizontal="23dp"
                 android:layout_marginTop="12dp"
+                android:autofillHints="password"
                 android:background="@drawable/editbox"
                 android:inputType="textPassword"
                 android:paddingHorizontal="5dp"
-                android:autofillHints="password"
 
                 android:textColor="#e3efc2"
                 android:textSize="18sp" />
@@ -123,8 +122,7 @@
 
                 android:text=""
                 android:textColor="#dba695"
-                android:textSize="17sp"
-                />
+                android:textSize="17sp" />
 
             <!--    REGISTER_BUTTON    -->
             <Button
@@ -139,7 +137,7 @@
                 android:fontFamily="@font/josefinsansregular"
 
                 android:onClick="registerClick"
-                android:text="Még nincs fiókod? Regisztrálj"
+                android:text="@string/noAccont"
                 android:textAlignment="textStart"
                 android:textColor="#e3efc2"
                 android:textSize="12sp"
@@ -154,10 +152,10 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/login_btn"
             android:fontFamily="@font/maitreeregular"
-            android:text="@string/login"
-            android:textAllCaps="false"
-
             android:onClick="loginClick"
+            android:text="@string/login"
+
+            android:textAllCaps="false"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

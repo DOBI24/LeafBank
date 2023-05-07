@@ -4,22 +4,25 @@ import static com.leafbank.home.HomeActivity.pageController;
 import static com.leafbank.home.HomeActivity.user;
 import static com.leafbank.home.HomeActivity.usersRef;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.leafbank.login.LoginActivity;
+import com.leafbank.NotificationHandler;
 import com.leafbank.R;
 import com.leafbank.bankaccount.BankaccountActivity;
 import com.leafbank.home.HomeActivity;
 import com.leafbank.home.HomeButtons;
+import com.leafbank.login.LoginActivity;
+
+import java.util.Objects;
 
 public class ProfileActivity extends AppCompatActivity implements HomeButtons {
     private EditText emailEditText;
@@ -27,15 +30,20 @@ public class ProfileActivity extends AppCompatActivity implements HomeButtons {
     private EditText fullnameEditText;
     private FirebaseAuth firebase;
     private FirebaseFirestore firestore;
+    private NotificationHandler notificationHandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
+        HomeActivity.setUserNameTextView(this);
 
         firebase = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
+
+        notificationHandler = new NotificationHandler(this);
 
         emailEditText = findViewById(R.id.profile_emailEditText);
         usernameEditText = findViewById(R.id.profile_usernameEditText);
@@ -43,13 +51,12 @@ public class ProfileActivity extends AppCompatActivity implements HomeButtons {
 
         emailEditText.setText(user.getEmail());
         usersRef.document(user.getUid()).get().addOnSuccessListener(documentSnapshot -> {
-            if (documentSnapshot.exists()){
-                usernameEditText.setText(documentSnapshot.getString("USERNAME"));
-                fullnameEditText.setText(documentSnapshot.getString("NAME"));
-            }
+            if (!documentSnapshot.exists()) return;
+
+            usernameEditText.setText(documentSnapshot.getString("USERNAME"));
+            fullnameEditText.setText(documentSnapshot.getString("NAME"));
         });
 
-        HomeActivity.setUserNameTextView(this);
     }
 
     @Override
@@ -69,12 +76,11 @@ public class ProfileActivity extends AppCompatActivity implements HomeButtons {
 
     public void resetpasswordbtn_click(View view) {
         firebase.sendPasswordResetEmail(emailEditText.getText().toString()).addOnCompleteListener(task -> {
-           if (task.isSuccessful()){
-               Toast.makeText(this, "Elküldve", Toast.LENGTH_SHORT).show();
-           }
-           else{
-               Toast.makeText(this, "Nem küldve", Toast.LENGTH_SHORT).show();
-           }
+            if (task.isSuccessful()) {
+                notificationHandler.SendEmailNotification("Jelszó-visszaállító email elküldve");
+            } else {
+                Toast.makeText(this, "Email ERROR", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
@@ -89,9 +95,9 @@ public class ProfileActivity extends AppCompatActivity implements HomeButtons {
         firebase.signOut();
         firestore.collection("Bankaccounts").whereEqualTo("ownerID", user.getUid()).get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
-                   for (DocumentSnapshot x : queryDocumentSnapshots){
-                       x.getReference().delete();
-                   }
+                    for (DocumentSnapshot x : queryDocumentSnapshots) {
+                        x.getReference().delete();
+                    }
                 });
         user.delete();
         usersRef.document(user.getUid()).delete();

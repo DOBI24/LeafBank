@@ -3,7 +3,6 @@ package com.leafbank.bankaccount;
 public class BankaccountItem {
     private String number;
     private double balance;
-
     private String ownerID;
 
     public BankaccountItem() {
@@ -15,6 +14,12 @@ public class BankaccountItem {
         this.ownerID = ownerID;
     }
 
+    public static String numberFormat(String number) {
+        StringBuilder ret = new StringBuilder(number);
+        ret.insert(8, "-");
+        return String.valueOf(ret);
+    }
+
     public String getNumber() {
         return number;
     }
@@ -23,19 +28,11 @@ public class BankaccountItem {
         return balance;
     }
 
-    public String getOwnerID() {
-        return ownerID;
-    }
-
     public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    public static String numberFormat(String number){
-        StringBuilder ret = new StringBuilder(number);
-        ret.insert(8, "-");
-        return String.valueOf(ret);
+    public String getOwnerID() {
+        return ownerID;
     }
-
-
 }

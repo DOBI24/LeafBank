@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="@color/transparent"
     app:cardElevation="0dp">
 
     <RelativeLayout
-        android:layout_margin="20dp"
-        android:background="@drawable/bankaccount_bg"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/bankaccount_bg">
+
         <TextView
             android:id="@+id/bankaccount_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="5dp"
-
-            android:text="Számla: #1"
-            android:textSize="20sp"
             android:fontFamily="@font/maitreeregular"
+            android:paddingHorizontal="30dp"
+
+            android:paddingTop="5dp"
+            android:text="Vezetéknév Keresztnév"
             android:textAlignment="viewEnd"
             android:textColor="@color/white1"
-            />
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/bankaccount_number"
@@ -32,27 +34,28 @@
             android:layout_below="@id/bankaccount_name"
             android:fontFamily="@font/impact"
 
+            android:letterSpacing="0.1"
             android:lineSpacingExtra="8sp"
             android:text="00000000-00000000"
-            android:letterSpacing="0.1"
-            android:textColor="@color/white1"
             android:textAlignment="center"
-            android:textSize="25sp" />
+            android:textColor="@color/white1"
+            android:textSize="25sp"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/bankaccount_balance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/bankaccount_number"
-            android:paddingHorizontal="30dp"
-            android:paddingBottom="5dp"
-
-            android:text="$654.55"
-            android:textSize="20sp"
-            android:textColor="@color/white1"
             android:fontFamily="@font/maitreeregular"
+            android:paddingHorizontal="30dp"
+
+            android:paddingBottom="5dp"
+            android:text="$654.55"
             android:textAlignment="viewEnd"
-            />
+            android:textColor="@color/white1"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

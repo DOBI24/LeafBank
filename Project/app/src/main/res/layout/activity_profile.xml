@@ -11,36 +11,36 @@
         android:id="@+id/titlelayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:paddingHorizontal="20dp"
-        android:layout_marginTop="20dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/home_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Szia"
+            android:text="@string/hi"
             android:textColor="@color/white1"
-            android:textSize="35sp"/>
+            android:textSize="35sp" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="0dp"
             android:layout_weight="1"
+            android:contentDescription="@string/hr"
             app:srcCompat="@drawable/hr" />
-
     </LinearLayout>
-    
-        
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/titlelayout"
-        app:layout_constraintBottom_toTopOf="@+id/home_navbar">
+        app:layout_constraintBottom_toTopOf="@+id/home_navbar"
+        app:layout_constraintTop_toBottomOf="@+id/titlelayout">
 
         <!--    EMAIL_TEXT    -->
         <TextView
@@ -52,11 +52,11 @@
             android:layout_marginEnd="25dp"
 
             android:fontFamily="@font/josefinsanslight"
+            android:labelFor="@id/profile_emailEditText"
             android:text="@string/email"
             android:textAllCaps="true"
             android:textColor="#e3efc2"
-            android:textSize="20sp"
-            android:labelFor="@id/profile_emailEditText"/>
+            android:textSize="20sp" />
 
         <!--    EMAIL_EDITBOX    -->
         <EditText
@@ -66,12 +66,13 @@
             android:layout_marginHorizontal="40dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/editbox"
+            android:enabled="false"
             android:paddingHorizontal="5dp"
             android:textColor="#e3efc2"
-            android:enabled="false"
 
             android:textSize="18sp"
-            />
+            android:importantForAutofill="no"
+            tools:ignore="TextFields" />
 
         <!--    USERNAME_TEXT    -->
         <TextView
@@ -83,11 +84,11 @@
             android:layout_marginEnd="25dp"
 
             android:fontFamily="@font/josefinsanslight"
+            android:labelFor="@id/profile_usernameEditText"
             android:text="@string/username"
             android:textAllCaps="true"
             android:textColor="#e3efc2"
-            android:textSize="20sp"
-            android:labelFor="@id/profile_usernameEditText"/>
+            android:textSize="20sp" />
 
         <!--    USERNAME_EDITBOX    -->
         <EditText
@@ -96,14 +97,14 @@
             android:layout_height="30dp"
             android:layout_marginHorizontal="40dp"
             android:layout_marginTop="12dp"
+            android:autofillHints="username"
             android:background="@drawable/editbox"
+            android:enabled="false"
             android:paddingHorizontal="5dp"
             android:textColor="#e3efc2"
-            android:autofillHints="username"
-            android:enabled="false"
 
             android:textSize="18sp"
-            />
+            tools:ignore="TextFields" />
 
         <!--    FULLNAME_TEXT    -->
         <TextView
@@ -115,11 +116,11 @@
             android:layout_marginEnd="25dp"
 
             android:fontFamily="@font/josefinsanslight"
+            android:labelFor="@id/profile_fullnameEditText"
             android:text="@string/name"
             android:textAllCaps="true"
             android:textColor="#e3efc2"
-            android:textSize="20sp"
-            android:labelFor="@id/profile_fullnameEditText"/>
+            android:textSize="20sp" />
 
         <!--    FULLNAME_EDITBOX    -->
         <EditText
@@ -128,60 +129,57 @@
             android:layout_height="30dp"
             android:layout_marginHorizontal="40dp"
             android:layout_marginTop="12dp"
+            android:autofillHints="name"
             android:background="@drawable/editbox"
+            android:enabled="false"
             android:paddingHorizontal="5dp"
             android:textColor="#e3efc2"
-            android:autofillHints="name"
-            android:enabled="false"
 
             android:textSize="18sp"
-            />
+            tools:ignore="TextFields" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/profile_resetpasswordbtn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginHorizontal="100dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/green_button"
             android:onClick="resetpasswordbtn_click"
             android:padding="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginHorizontal="100dp"
+            android:text="@string/passwordReset"
             android:textAllCaps="false"
-            android:text="Jelszó visszaállítása"
-            android:textColor="@color/white1"
 
-            android:background="@drawable/green_button"
-            />
+            android:textColor="@color/white1" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/profile_logoutbtn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginHorizontal="100dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/green_button"
             android:onClick="logoutbtn_click"
             android:padding="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginHorizontal="100dp"
+            android:text="@string/logout"
             android:textAllCaps="false"
-            android:text="Kijelentkezés"
-            android:textColor="@color/white1"
 
-            android:background="@drawable/green_button"
-            />
+            android:textColor="@color/white1" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/profile_deleteuserbtn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="deleteuserbtn_click"
-            android:padding="10dp"
-            android:layout_marginTop="20dp"
             android:layout_marginHorizontal="100dp"
-            android:textAllCaps="false"
-            android:text="Fiók törlése"
-            android:textColor="@color/white1"
-
+            android:layout_marginTop="20dp"
             android:background="@drawable/green_button"
             android:backgroundTint="#db572b"
-            />
+            android:onClick="deleteuserbtn_click"
+            android:padding="10dp"
+            android:text="@string/delteAccount"
+
+            android:textAllCaps="false"
+            android:textColor="@color/white1" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -195,14 +193,13 @@
             android:id="@+id/home_homebtn"
             android:layout_width="46dp"
             android:layout_height="50dp"
-            android:onClick="hombebtn_click"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="30dp"
-
             android:background="@drawable/home_home"
-            />
+            android:onClick="hombebtn_click"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/home_bankaccountbtn"
@@ -210,8 +207,8 @@
             android:layout_height="70dp"
             android:background="@drawable/bankaccount_button"
             android:onClick="bankaccountbtn_click"
-            app:layout_constraintEnd_toStartOf="@+id/home_profilebtn"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/home_profilebtn"
 
             app:layout_constraintStart_toEndOf="@+id/home_homebtn"
             app:layout_constraintTop_toTopOf="parent" />
@@ -220,14 +217,13 @@
             android:id="@+id/home_profilebtn"
             android:layout_width="46dp"
             android:layout_height="50dp"
-            android:onClick="profilebtn_click"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginEnd="30dp"
-
             android:background="@drawable/home_profile"
-            />
+            android:onClick="profilebtn_click"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

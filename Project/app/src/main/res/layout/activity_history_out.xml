@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_b"
-    tools:context=".home.HomeActivity">
+    tools:context=".history.HistoryOutActivity">
 
     <LinearLayout
         android:id="@+id/titlelayout"
@@ -35,86 +35,61 @@
             app:srcCompat="@drawable/hr" />
     </LinearLayout>
 
-    <TableLayout
-        android:id="@+id/hometablelayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/historyout_pageselector"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="50sp"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/titlelayout">
 
-        <TableRow
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/historyout_toinbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@color/transparent"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/didactregular"
+            android:onClick="toinbtn_click"
+            android:text="@string/inText"
+
+            android:textAllCaps="false"
+            android:textColor="@color/white1"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/historyout_tooutbtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/historyout_tooutbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:background="@color/transparent"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/didactregular"
+            android:onClick="tooutbtn_click"
+            android:text="@string/outTextChecked"
+
+            android:textAllCaps="false"
+            android:textColor="@color/white1"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/historyout_toinbtn"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="500dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/historyout_pageselector">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/historyout_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center">
-            <!--      SENDMONEY_BUTTON      -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/home_sendmoneybtn"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/sendmoney"
-                android:fontFamily="@font/didactregular"
-
-                android:onClick="sendmoneybtn_click"
-                android:paddingBottom="80dp"
-                android:text="@string/sendmoney"
-                android:textAllCaps="false"
-                android:textColor="@color/white1"
-                android:textSize="23sp" />
-            <!--      ATM_BUTTON      -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/home_atmbtn"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/atm"
-                android:fontFamily="@font/didactregular"
-
-                android:onClick="atmbtn_click"
-                android:paddingBottom="80dp"
-                android:text="@string/findatm"
-                android:textAllCaps="false"
-                android:textColor="@color/white1"
-                android:textSize="23sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-            <!--      HISTORY_BUTTON      -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/home_historybtn"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/history"
-                android:fontFamily="@font/didactregular"
-
-                android:onClick="historybtn_click"
-                android:paddingBottom="80dp"
-                android:text="@string/history"
-                android:textAllCaps="false"
-                android:textColor="@color/white1"
-                android:textSize="23sp" />
-            <!--      ERECEIPT_BUTTON      -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/home_ereceiptbtn"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/ereceipt"
-
-                android:fontFamily="@font/didactregular"
-                android:paddingBottom="80dp"
-                android:text="@string/ereceipt"
-                android:textAllCaps="false"
-                android:textColor="@color/white1"
-                android:textSize="23sp" />
-        </TableRow>
-    </TableLayout>
+            android:scrollbars="vertical" />
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/home_navbar"
@@ -160,5 +135,4 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,4 @@
-package com.leafbank;
-
-import static com.leafbank.home.HomeActivity.usersRef;
+package com.leafbank.history;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,20 +11,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.leafbank.R;
 import com.leafbank.bankaccount.BankaccountItem;
-import com.leafbank.bankaccount.BankaccountItemAdapter;
-
-import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Objects;
 
-public class HistoryItemAdapter  extends RecyclerView.Adapter<HistoryItemAdapter.ViewHolder>{
-    private ArrayList<HistoryItem> items;
-    private Context context;
-    private int lastPosition = -1;
+public class HistoryItemAdapter extends RecyclerView.Adapter<HistoryItemAdapter.ViewHolder> {
+    private final ArrayList<HistoryItem> items;
+    private final Context context;
 
     public HistoryItemAdapter(Context context, ArrayList<HistoryItem> items) {
         this.context = context;
@@ -36,7 +31,7 @@ public class HistoryItemAdapter  extends RecyclerView.Adapter<HistoryItemAdapter
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new HistoryItemAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.history_card_in, parent, false));
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.history_card_in, parent, false));
     }
 
     @Override
@@ -51,11 +46,11 @@ public class HistoryItemAdapter  extends RecyclerView.Adapter<HistoryItemAdapter
         return items.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView fromaccountTextView;
-        private TextView detailsTextView;
-        private TextView toaccountTextView;
-        private ImageView history_arrow;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        private final TextView fromaccountTextView;
+        private final TextView detailsTextView;
+        private final TextView toaccountTextView;
+        private final ImageView history_arrow;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,13 +63,15 @@ public class HistoryItemAdapter  extends RecyclerView.Adapter<HistoryItemAdapter
 
         @SuppressLint("SetTextI18n")
         public void bindTo(HistoryItem currentItem) {
-            if(Objects.equals(currentItem.getDirection(), "out")) history_arrow.setImageResource(R.drawable.outmoney2);
+            if (Objects.equals(currentItem.getDirection(), "out"))
+                history_arrow.setImageResource(R.drawable.outmoney2);
+            else history_arrow.setImageResource(R.drawable.inmoney);
             fromaccountTextView.setText(BankaccountItem.numberFormat(currentItem.getFromNumber()));
 
             //TODO: Az idő direkt helyi időzóna
             detailsTextView.setText(
                     new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault()).format(currentItem.getDate().toDate()) + "\n"
-                    + "$" +currentItem.getAmount()
+                            + "$" + currentItem.getAmount()
             );
 
             toaccountTextView.setText(BankaccountItem.numberFormat(currentItem.getToNumber()));

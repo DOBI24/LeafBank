@@ -1,28 +1,28 @@
-package com.leafbank;
+package com.leafbank.history;
 
 import static com.leafbank.home.HomeActivity.pageController;
 import static com.leafbank.home.HomeActivity.user;
+
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.view.View;
-
-import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.leafbank.R;
 import com.leafbank.bankaccount.BankaccountActivity;
-import com.leafbank.bankaccount.BankaccountItem;
-import com.leafbank.bankaccount.BankaccountItemAdapter;
 import com.leafbank.home.HomeActivity;
 import com.leafbank.home.HomeButtons;
 import com.leafbank.profile.ProfileActivity;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class HistoryActivity extends AppCompatActivity implements HomeButtons {
+public class HistoryOutActivity extends AppCompatActivity implements HomeButtons {
 
     private RecyclerView recyclerView;
     private ArrayList<HistoryItem> items;
@@ -32,43 +32,39 @@ public class HistoryActivity extends AppCompatActivity implements HomeButtons {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history);
-        getSupportActionBar().hide();
+        setContentView(R.layout.activity_history_out);
+        Objects.requireNonNull(getSupportActionBar()).hide();
         HomeActivity.setUserNameTextView(this);
 
         firestore = FirebaseFirestore.getInstance();
-
-        recyclerView = findViewById(R.id.history_recyclerview);
+        recyclerView = findViewById(R.id.historyout_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, true));
 
         items = new ArrayList<>();
         adapter = new HistoryItemAdapter(this, items);
         recyclerView.setAdapter(adapter);
+    }
 
+    @SuppressLint("NotifyDataSetChanged")
+    @Override
+    protected void onResume() {
+        super.onResume();
+        items.clear();
         firestore.collection("Transfers")
                 .whereEqualTo("fromUser", user.getUid())
-                .whereEqualTo("toUser", user.getUid())
                 .orderBy("date")
                 .get().addOnSuccessListener(queryDocumentSnapshots -> {
                     if (queryDocumentSnapshots.isEmpty()) return;
 
-                    for (QueryDocumentSnapshot document : queryDocumentSnapshots){
+                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                         HistoryItem item = document.toObject(HistoryItem.class);
 
-                        if (document.get("fromUser").toString().equals(user.getUid())) item.setDirection("out");
-                        else item.setDirection("in");
+                        item.setDirection("out");
 
                         items.add(item);
                         adapter.notifyDataSetChanged();
-
-                        if (document.get("fromUser").toString().equals(user.getUid()) && document.get("toUser").toString().equals(user.getUid())){
-                            item = document.toObject(HistoryItem.class);
-                            item.setDirection("in");
-                            items.add(item);
-                            adapter.notifyDataSetChanged();
-                        }
                     }
-                    recyclerView.scrollToPosition(items.size()-1);
+                    recyclerView.scrollToPosition(items.size() - 1);
                 });
     }
 
@@ -85,5 +81,13 @@ public class HistoryActivity extends AppCompatActivity implements HomeButtons {
     @Override
     public void profilebtn_click(View view) {
         pageController(this, ProfileActivity.class);
+    }
+
+    public void toinbtn_click(View view) {
+        pageController(this, HistoryInActivity.class);
+    }
+
+    public void tooutbtn_click(View view) {
+        pageController(this, HistoryOutActivity.class);
     }
 }
